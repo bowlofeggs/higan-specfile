@@ -31,6 +31,15 @@ sed -i \
         -e "/handle/s#/usr/local/lib#/usr/%{_libdir}#" \
         nall/dl.hpp || die "fixing libdir failed!"
 
+# fix so that it doesn't build march=native
+pushd higan
+sed -i 's/march=native/march=x86-64/g' GNUmakefile
+popd
+
+pushd icarus
+sed -i 's/march=native/march=x86-64/g' GNUmakefile
+popd
+
 
 %build
 pushd icarus
