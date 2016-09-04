@@ -1,6 +1,6 @@
 
 Name: higan
-Version: 100
+Version: 101
 Release: 1%{?dist}
 
 License: GPLv3
@@ -25,7 +25,7 @@ Higan is an emulator.
 
 
 %prep
-%autosetup -n higan-v%{version}-07995c05a5a2f9362236f62e0182757255d776e4
+%autosetup -n higan-v101-e39987a3e32080f647fb57757f6d4ac82857d32b
 
 sed -i \
         -e "/handle/s#/usr/local/lib#/usr/%{_libdir}#" \
@@ -72,6 +72,9 @@ popd
 
 
 %changelog
+* Sun Sep 04 2016 Randy Barlow <randy@electronsweatshop.com> - 101-1
+- Update to v101.
+
 * Fri Aug 05 2016 Randy Barlow <randy@electronsweatshop.com> - 100-1
 - Update to v100.
 
