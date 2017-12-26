@@ -1,6 +1,5 @@
-
 Name: higan
-Version: 101
+Version: 102
 Release: 1%{?dist}
 
 License: GPLv3
@@ -25,7 +24,7 @@ Higan is an emulator.
 
 
 %prep
-%autosetup -n higan-v101-e39987a3e32080f647fb57757f6d4ac82857d32b
+%autosetup -n higan-v%{version}-ae5968cfebfb0ec9485e28acd0f9ede6424dec45
 
 sed -i \
         -e "/handle/s#/usr/local/lib#/usr/%{_libdir}#" \
@@ -72,11 +71,14 @@ popd
 
 
 %changelog
-* Sun Sep 04 2016 Randy Barlow <randy@electronsweatshop.com> - 101-1
-- Update to v101.
+* Mon Feb 20 2017 Mirko Rolfes <songokussj@gmx.net> - 102
+- Update to 102
 
-* Fri Aug 05 2016 Randy Barlow <randy@electronsweatshop.com> - 100-1
-- Update to v100.
+* Mon Aug 22 2016 Mirko Rolfes <songokussj@gmx.net> - 101-1
+- Update to 101
+
+* Tue Aug 02 2016 Mirko Rolfes <songokussj@gmx.net> - 100-1
+- Update to 100
 
 * Tue Jun 21 2016 Randy Barlow <bowlofeggs@fedoraproject.org> - 099-1
 - Initial release.
