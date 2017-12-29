@@ -1,6 +1,6 @@
 Name: higan
 Version: 102
-Release: 1%{?dist}
+Release: 2%{?dist}
 
 License: GPLv3
 Summary: Emulator
@@ -31,13 +31,10 @@ sed -i \
         nall/dl.hpp || die "fixing libdir failed!"
 
 # fix so that it doesn't build march=native
-pushd higan
-sed -i 's/march=native/march=x86-64/g' GNUmakefile
-popd
-
-pushd icarus
-sed -i 's/march=native/march=x86-64/g' GNUmakefile
-popd
+sed -i \
+	    -e 's/march=native/march=x86-64/g' \
+        -e 's/^\(flags.*\)/\1 -g/' \
+        higan/GNUmakefile icarus/GNUmakefile
 
 
 %build
@@ -71,6 +68,9 @@ popd
 
 
 %changelog
+* Fri Dec 29 2017 Dick Marinus <dick@mrns.nl> - 102-2
+- Add debug symbols for find-debuginfo.sh
+
 * Mon Feb 20 2017 Mirko Rolfes <songokussj@gmx.net> - 102
 - Update to 102
 
