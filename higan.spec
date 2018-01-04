@@ -1,6 +1,6 @@
 Name: higan
-Version: 102
-Release: 2%{?dist}
+Version: 106
+Release: 1%{?dist}
 
 License: GPLv3
 Summary: Emulator
@@ -24,7 +24,7 @@ Higan is an emulator.
 
 
 %prep
-%autosetup -n higan-v%{version}-ae5968cfebfb0ec9485e28acd0f9ede6424dec45
+%autosetup -n higan-v%{version}-b55783c322a0158d9c192e0e14348fe9b5f76f7e
 
 sed -i \
         -e "/handle/s#/usr/local/lib#/usr/%{_libdir}#" \
@@ -62,12 +62,17 @@ popd
 %{_bindir}/higan
 %{_bindir}/icarus
 %{_datadir}/applications/higan.desktop
+%{_datadir}/applications/icarus.desktop
 %{_datadir}/higan
 %{_datadir}/icarus
 %{_datadir}/icons/higan.png
+%{_datadir}/icons/icarus.png
 
 
 %changelog
+* Thu Jan 04 2018 Dick Marinus <dick@mrns.nl> - 106-1
+- Update to 106
+
 * Fri Dec 29 2017 Dick Marinus <dick@mrns.nl> - 102-2
 - Add debug symbols for find-debuginfo.sh
 
