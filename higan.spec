@@ -1,11 +1,12 @@
 Name: higan
 Version: 106
-Release: 1%{?dist}
+Release: 2%{?dist}
 
 License: GPLv3
 Summary: Emulator
 URL:     http://byuu.org/emulation/higan
-Source0: https://gitlab.com/higan/higan/repository/archive.tar.gz?ref=v%{version}
+Source:  https://gitlab.com/higan/higan/repository/v%{version}/archive.tar.bz2
+Patch0:  use_sharedpath.patch
 
 BuildRequires: gcc-c++
 BuildRequires: gtk2-devel
@@ -24,7 +25,7 @@ Higan is an emulator.
 
 
 %prep
-%autosetup -n higan-v%{version}-b55783c322a0158d9c192e0e14348fe9b5f76f7e
+%autosetup -n higan-v%{version}-b55783c322a0158d9c192e0e14348fe9b5f76f7e -p1
 
 sed -i \
         -e "/handle/s#/usr/local/lib#/usr/%{_libdir}#" \
@@ -70,6 +71,9 @@ popd
 
 
 %changelog
+* Sun Mar 04 2018 Dick Marinus <dick@mrns.nl> - 106-2
+- Change URL, add use_sharedpath patch from Tobias Hansen
+
 * Thu Jan 04 2018 Dick Marinus <dick@mrns.nl> - 106-1
 - Update to 106
 
